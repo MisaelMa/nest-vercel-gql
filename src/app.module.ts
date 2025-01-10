@@ -10,6 +10,8 @@ import { AuthorsModule } from './authors/authors.module';
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: true,
+      playground: true,
+      introspection: true,
     }),
     AuthorsModule,
   ],
