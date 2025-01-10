@@ -11,13 +11,12 @@ export class AuthorsResolver {
   /*   @Mutation(() => Author)
   createAuthor(@Args('createAuthorInput') createAuthorInput: CreateAuthorInput) {
     return this.authorsService.create(createAuthorInput);
-  }
+  }*/
 
   @Query(() => [Author], { name: 'authors' })
   findAll() {
     return this.authorsService.findAll();
   }
-     */
 
   @Query(() => Author, { name: 'author' })
   findOne(@Args('id', { type: () => Int }) id: number) {

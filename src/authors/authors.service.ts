@@ -13,13 +13,13 @@ const authors: Author[] = [
 ];
 @Injectable()
 export class AuthorsService {
-  /* create(createAuthorInput: CreateAuthorInput) {
+  /*create(createAuthorInput: CreateAuthorInput) {
     return 'This action adds a new author';
-  } 
-
+  }
+  */
   findAll() {
-    return `This action returns all authors`;
-  }*/
+    return authors;
+  }
 
   findOne(id: number) {
     const author = authors.find((author) => author.id === id);
