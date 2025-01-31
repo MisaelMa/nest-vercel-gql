@@ -4,6 +4,8 @@ import { AppService } from './app.service';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { AuthorsModule } from './authors/authors.module';
+import { CoreModule } from './core/core.module';
+import { ConfigModule } from './config/config.module';
 
 @Module({
   imports: [
@@ -14,6 +16,8 @@ import { AuthorsModule } from './authors/authors.module';
       introspection: true,
     }),
     AuthorsModule,
+    CoreModule,
+    ConfigModule,
   ],
   controllers: [AppController],
   providers: [AppService],
