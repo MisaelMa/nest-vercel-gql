@@ -8,7 +8,7 @@ import {
 import { AppService } from './app.service';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { ImagekitService } from './core/imagekit/imagekit.service';
-import { url } from 'inspector';
+import { memoryStorage } from 'multer';
 
 @Controller()
 export class AppController {
@@ -24,10 +24,13 @@ export class AppController {
   }
 
   @Post('upload')
-  @UseInterceptors(FileInterceptor('file'))
+  @UseInterceptors(
+    FileInterceptor('file', {
+      storage: memoryStorage(),
+    }),
+  )
   async uploadFile(@UploadedFile() file: Express.Multer.File) {
     const response = await this.imagekit.uploadFile(file);
-    console.log(response);
     return {
       url: response.url,
       id: response.fileId,
